@@ -1,5 +1,11 @@
 # SPOTIFY HOME PAGE CLONE [FrontEnd]
+
+GitHub Live URL
 https://lab-dev-pranav.github.io/Spotify_Clone_fe/
+
+Render Live URL
+https://spotifyclone-dev-p.onrender.com/
+
 
 A responsive Spotify homepage clone built using **HTML**, **CSS**, and **JavaScript**. This project replicates the look and feel of Spotify’s landing page, featuring dynamic sidebar content, playlist sections, and adaptive layouts for all devices.
 
