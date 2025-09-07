@@ -19,6 +19,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@NaN,300,0,0"
     />
+
+    <script
+      src="https://kit.fontawesome.com/1c020da525.js"
+      crossorigin="anonymous"
+    ></script>
+
     <title>+Spotify - Web Player: Music for everyone</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="assits\IMG\logo.png" />
@@ -118,14 +124,13 @@
                 </div>
               </div>
               <!-- OTHER ARTIST OR PLAYLIST CONTENT SHOWN HEAR NEXT TO DEFAULT LIST BY USING JS ( JS CODE = #3000 )  -->
-              
             </div>
           </div>
         </div>
 
         <div class="main-screen-header-mainbar">
           <!-- header-mainbar = h-mb -->
-<!-- -------------------------------------- -->
+          <!-- -------------------------------------- -->
           <!-- MAIN SECTION HEADER STICKY ON SCROL EFFECT BY USING JS ( JS CODE = 2998 ) -->
           <div class="h-mb-top">
             <div class="h-mb-top-header">
@@ -160,7 +165,7 @@
               <br />
             </div> -->
           </div>
-<!-- -------------------------------------- -->
+          <!-- -------------------------------------- -->
           <div class="h-mb-bottem">
             <div class="h-mb-bottem-playlist">
               <!-- IN THIS SECTION ALL THE WATCHED PLAYLIST IS SHOWN BY JS (JS-CODE = "#3002") -->
@@ -170,7 +175,7 @@
                   Top Mix section 
               -->
           </div>
-<!-- -------------------------------------- -->
+          <!-- -------------------------------------- -->
           <footer class="spotify-footer">
             <div class="footer-section">
               <h3>Company</h3>
@@ -267,11 +272,11 @@
                     class="jam jam-twitter-square"
                   >
                     <path
-                    fill="#ffffff"
+                      fill="#ffffff"
                       d="M15 6.947c-.368.16-.763.27-1.178.318.424-.25.748-.646.902-1.117-.398.231-.836.4-1.304.49A2.06 2.06 0 0 0 11.923 6c-1.133 0-2.051.905-2.051 2.02 0 .158.018.312.053.46a5.854 5.854 0 0 1-4.228-2.11 1.982 1.982 0 0 0-.278 1.015c0 .7.363 1.32.913 1.681a2.076 2.076 0 0 1-.93-.253v.025a2.03 2.03 0 0 0 1.646 1.98 2.108 2.108 0 0 1-.927.034 2.049 2.049 0 0 0 1.916 1.403 4.156 4.156 0 0 1-2.548.864c-.165 0-.328-.01-.489-.028A5.863 5.863 0 0 0 8.144 14c3.774 0 5.837-3.078 5.837-5.748l-.007-.262A4.063 4.063 0 0 0 15 6.947z"
                     />
                     <path
-                    fill="#ffffff"
+                      fill="#ffffff"
                       d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4zm0-2h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
                     />
                   </svg>
@@ -293,7 +298,7 @@
 
       <!-- ---------MUSIC PLAYER AND CONTROLER--S--------- -->
 
-      <div class="main-screen-bottem">
+      <!-- <div class="main-screen-bottem">
         <div class="main-screen-bottem-start">
           <div class="main-screen-bottem-start-left">
             <img
@@ -312,7 +317,99 @@
         <div class="main-screen-bottem-end">
 
         </div>
+      </div> -->
+
+      <div class="player">
+        <!-- Left -->
+        <div class="song-info">
+          <img
+            src="https://i.scdn.co/image/ab67616d0000b27398a6a3c57d20593d353ecb3b"
+            alt="Album"
+          />
+          <div class="song-meta">
+            <h4>Jeena Jeena</h4>
+            <p>Sachin-Jigar, Atif Aslam</p>
+          </div>
+        </div>
+
+        <!-- Center -->
+        <div class="controls">
+          <div class="buttons">
+            <i class="fa-solid fa-shuffle"></i>
+            <i class="fa-solid fa-backward-step"></i>
+            <i class="fa-solid fa-circle-play play" id="playBtn"></i>
+            <i class="fa-solid fa-forward-step"></i>
+            <i class="fa-solid fa-rectangle-list"></i>
+          </div>
+          <div class="progress">
+            <span class="time" id="currentTime">0:00</span>
+            <input type="range" id="progressBar" value="0" min="0" max="100" />
+            <span class="time" id="duration">3:48</span>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="extra">
+          <i class="fa-solid fa-volume-high"></i>
+          <input type="range" id="volume" min="0" max="100" value="70" />
+        </div>
       </div>
+
+      <script>
+        const playBtn = document.getElementById("playBtn");
+        const progressBar = document.getElementById("progressBar");
+        const currentTime = document.getElementById("currentTime");
+        const duration = document.getElementById("duration");
+        const volume = document.getElementById("volume");
+
+        // Dummy audio
+        const audio = new Audio(
+          "https://pagalsong.in/uploads/systemuploads/mp3/Badlapur/Jeena%20Jeena%20-%20Badlapur%20128%20Kbps.mp3"
+        );
+
+        let isPlaying = false;
+
+        playBtn.addEventListener("click", () => {
+          if (!isPlaying) {
+            audio.play();
+            playBtn.classList.replace("fa-circle-play", "fa-circle-pause");
+          } else {
+            audio.pause();
+            playBtn.classList.replace("fa-circle-pause", "fa-circle-play");
+          }
+          isPlaying = !isPlaying;
+        });
+
+        // Update progress bar
+        audio.addEventListener("timeupdate", () => {
+          const progress = (audio.currentTime / audio.duration) * 100;
+          progressBar.value = progress;
+
+          // Update current time
+          let minutes = Math.floor(audio.currentTime / 60);
+          let seconds = Math.floor(audio.currentTime % 60);
+          if (seconds < 10) seconds = "0" + seconds;
+          currentTime.textContent = `${minutes}:${seconds}`;
+        });
+
+        // Seek
+        progressBar.addEventListener("input", () => {
+          audio.currentTime = (progressBar.value / 100) * audio.duration;
+        });
+
+        // Volume
+        volume.addEventListener("input", () => {
+          audio.volume = volume.value / 100;
+        });
+
+        // Set duration text when metadata loads
+        audio.addEventListener("loadedmetadata", () => {
+          let minutes = Math.floor(audio.duration / 60);
+          let seconds = Math.floor(audio.duration % 60);
+          if (seconds < 10) seconds = "0" + seconds;
+          duration.textContent = `${minutes}:${seconds}`;
+        });
+      </script>
 
       <!-- ---------MUSIC PLAYER AND CONTROLER--S--------- -->
     </main>
