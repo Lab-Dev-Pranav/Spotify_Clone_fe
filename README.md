@@ -51,3 +51,7 @@ This project is best for developers who want to:
 ---
 
 Enjoy exploring the Spotify
+
+---
+
+“This project is an educational UI clone inspired by a popular streaming service. It is not affiliated with or endorsed by any company.”
