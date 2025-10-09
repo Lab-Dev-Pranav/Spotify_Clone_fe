@@ -180,14 +180,14 @@ mainBar.addEventListener("scroll", function () {
   let scroll_pos = mainBar.scrollTop;
   if (scroll_pos >= 140) {
     h_mb_top_header.style.position = "fixed";
-    h_mb_top_header.style.backgroundColor = "#4ab784";
+    h_mb_top_header.style.backgroundColor = "#4e86ffd4";
     h_mb_top_header.style.transition = "all 1.5s linear";
     h_mb_top_header_end.style.position = "sticky";
     h_mb_top_header_end.style.right = "0px";
     h_mb_top_header_end.style.width = "calc(100% - 10px)";
   } else {
     h_mb_top_header.style.position = "static";
-    h_mb_top_header.style.backgroundColor = "#006e2ad4";
+    h_mb_top_header.style.backgroundColor = "#4e86ffd4";
     // h_mb_top_header.style.transition = "none";
   }
 });

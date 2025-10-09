@@ -100,13 +100,13 @@ body {
 }
 
 .sidebar-top-top h3 strong {
-  color: rgb(150, 255, 124);
+  color: #95b7ff;
   margin: 0px 0px 0px 10px;
 }
 
 .sidebar-top-top h3 sup {
   font-size: 10px;
-  color: rgb(150, 255, 124);
+  color: #95b7ff;
   margin: 0px 0px 0px 0px;
 }
 
@@ -597,7 +597,7 @@ body {
 .h-mb-top {
   height: 60px;
   width: 100%;
-  background-color: #006e2ad4;
+  background-color: #4e86ffd4;
   /* border:0px solid rgba(255, 0, 0, 0); */
   border-radius: 10px 0px 0px 0px;
   /* position: fixed;
@@ -818,18 +818,17 @@ body {
   height: auto;
   width: 99.7%;
   /* border: 2px solid rgba(255, 0, 0, 0); */
-  background: linear-gradient(
-    180deg,
-    #57ff574e 10%,
-    #50de5089 20%,
-    #43b443c3 30%,
-    #309a30c3 40%,
-    #2e702ec3 50%,
-    #224322c3 60%,
-    #172817c3 70%,
-    #141614 80%,
-    #121212 90%
-  );
+background: linear-gradient(
+  180deg,
+  #6ecbff4d 10%,  /* light sky blue (semi-transparent) */
+  #4ab3ff80 25%,  /* soft blue */
+  #2a91ffb3 40%,  /* medium blue */
+  #1e6ed6cc 55%,  /* deeper blue */
+  #184faad9 70%,  /* navy tone */
+  #102f66e6 85%,  /* dark navy */
+  #0a1b33 100%    /* near-black blue */
+);
+
   /* position: absolute; */
   z-index: 1;
 }
